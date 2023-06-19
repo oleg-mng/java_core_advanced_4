@@ -6,7 +6,7 @@ public class MyArrayDataException extends MyArrayException{
     char c;
 
 
-    public MyArrayDataException(String message, int x, int y, char c) {
+    public MyArrayDataException(Class<? extends MyCharArray> name, String message, int x, int y, char c) {
         super(message);
         this.x = x;
         this.y = y;
@@ -24,6 +24,8 @@ public class MyArrayDataException extends MyArrayException{
     }
 
     public char getC() {
+        System.out.println(getClass());
         return c;
     }
+
 }

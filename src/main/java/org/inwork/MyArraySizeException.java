@@ -9,6 +9,7 @@ public class MyArraySizeException extends MyArrayException{
     }
 
     public int getSize() {
+        System.out.println(getClass());
         return size;
     }
 }

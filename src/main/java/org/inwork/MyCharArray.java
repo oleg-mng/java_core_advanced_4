@@ -26,14 +26,14 @@ public class MyCharArray {
                 size = myCharArray[0].length;
                 throw new MyArraySizeException("Число столбов не соответствует 4-м", size);
             }
-//            for (int i = 0; i < 4; i++) {
-//                for (int j = 0; j < 4; i++) {
-//                    if (myCharArray[i][j] == 0) {
-//                        throw new ArrayIndexOutOfBoundsException();
-//                    }
-////                    else continue;
-//                }
-//            }
+            for (int i = 0; i < myCharArray.length; i++) {
+                for (int j = 0; j < myCharArray[0].length; j++) {
+                    if (myCharArray[i][j].equals(null)) {
+                        throw new ArrayIndexOutOfBoundsException();
+                    }
+
+                }
+            }
 
         } catch (MyArraySizeException ex) {
             System.out.printf("сообщение: %s, текущее количество: %d\n", ex.getMessage(), ex.getSize());
@@ -43,27 +43,25 @@ public class MyCharArray {
         }
 
     }
-    public void checkDataArray(Character[][] myCharArray){
-        int[][] intAr = new int [4][4];
+
+    public void checkDataArray(Character[][] myCharArray) {
+        int[][] intAr = new int[4][4];
         int sum = 0;
         try {
             for (int i = 0; i < intAr.length; i++) {
                 for (int j = 0; j < intAr[0].length; j++) {
                     intAr[i][j] = Character.digit(myCharArray[i][j], 10);
-                    sum += intAr[i][j];
-                    if (!Character.isDigit(myCharArray[i][j])){
-                        throw new MyArrayDataException("Данный элемент не число", i, j, myCharArray[i][j] );
+                    if (!Character.isDigit(myCharArray[i][j])) {
+                        throw new MyArrayDataException(getClass(), "Данный элемент не число", i, j, myCharArray[i][j]);
                     }
+                    sum += intAr[i][j];
                 }
             }
-        }
-        catch (MyArrayDataException ex){
-            System.out.printf("сообщение: %s - '%c' - координаты элемента: i = %d, j =%d \n",
-                    ex.getMessage(), ex.getC(),ex.getX(), ex.getY());
-        }
-        finally {
+        } catch (MyArrayDataException ex) {
+            System.out.printf("сообщение: %s - '%c' - координаты элемента: i = %d, j = %d \n",
+                    ex.getMessage(), ex.getC(), ex.getX(), ex.getY());
+        } finally {
             System.out.printf("Сумма элементов равна %d: ", sum);
-            System.out.println(Arrays.asList(intAr));
         }
 
     }

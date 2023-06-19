@@ -7,13 +7,13 @@ public class Program {
         Character[][] ch = new Character[][] {
                 {'1','2','3','4'},
                 {'1','2','3','4'},
+                {'1','2','k','4'},
                 {'1','2','3','4'},
-                {'1','2','l','4'},
         };
 
         System.out.println();
         MyCharArray myCharArray = new MyCharArray();
-        myCharArray.checkSizeArray(ch);
+//        myCharArray.checkSizeArray(ch);
         myCharArray.checkDataArray(ch);
 
 //        int[][] arInt = new int [4][4];
