@@ -1,12 +1,12 @@
 package org.inwork;
 
-public class MyArrayException extends ArrayIndexOutOfBoundsException{
-    protected String name;
+public class MyArrayException extends Exception{
+    protected String message;
     protected int x;
     protected int y;
 
-    public String getName() {
-        return name;
+    public String getMessage() {
+        return message;
     }
 
     public int getX() {
@@ -15,5 +15,11 @@ public class MyArrayException extends ArrayIndexOutOfBoundsException{
 
     public int getY() {
         return y;
+    }
+
+    public MyArrayException(String message) {
+        this.message = message;
+//        this.x = x;
+//        this.y = y;
     }
 }
